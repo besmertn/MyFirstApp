@@ -25,6 +25,7 @@
         android:textAlignment="viewEnd"
         android:textSize="20sp" />
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/buttonsViewGroup"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         xmlns:android="http://schemas.android.com/apk/res/android"

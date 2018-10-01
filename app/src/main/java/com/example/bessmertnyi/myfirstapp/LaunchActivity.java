@@ -1,9 +1,13 @@
 package com.example.bessmertnyi.myfirstapp;
 
+import android.content.res.Configuration;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import javax.script.ScriptEngine;
@@ -15,6 +19,10 @@ public class LaunchActivity extends AppCompatActivity {
             editButton7, editButton8, editButton9, editButton0, editButtonAdd, editButtonDiff,
             editButtonMult, editButtonDiv, editButtonDot, editButtonEqual;
     TextView editTextView, resultTextView;
+
+    String input;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,6 +173,56 @@ public class LaunchActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        input = editTextView.getText().toString();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int orientation = getResources().getConfiguration().orientation;
+        LinearLayout.LayoutParams editTextViewParam = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                0
+        );
+
+        LinearLayout.LayoutParams buttonsViewGroupParam = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                0
+        );
+
+        if(orientation == Configuration.ORIENTATION_LANDSCAPE){
+            editTextViewParam.weight = 1.0f;
+            buttonsViewGroupParam.weight = 4.0f;
+        } else {
+
+            editTextViewParam.weight = 2.0f;
+            buttonsViewGroupParam.weight = 3.0f;
+        }
+
+        editTextView.setLayoutParams(editTextViewParam);
+        findViewById(R.id.buttonsViewGroup).setLayoutParams(buttonsViewGroupParam);
+        editTextView.setText(input);
+        computCalculations();
+
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("Calculations", input);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        input = savedInstanceState.getString("Calculations");
+    }
+
     public double computCalculations() {
         double result = 0;
         ScriptEngineManager mgr = new ScriptEngineManager();
@@ -172,6 +230,8 @@ public class LaunchActivity extends AppCompatActivity {
         try {
             result = (Double)engine.eval(editTextView.getText().toString());
         } catch (ScriptException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
         resultTextView.setText("= " + result);
