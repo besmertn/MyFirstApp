@@ -1,9 +1,8 @@
 package com.example.bessmertnyi.myfirstapp;
 
 import android.content.res.Configuration;
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -255,9 +254,7 @@ public class LaunchActivity extends AppCompatActivity {
         ScriptEngine engine = mgr.getEngineByName("rhino");
         try {
             result = (Double)engine.eval(editTextView.getText().toString());
-        } catch (ScriptException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
+        } catch (ScriptException | NullPointerException e) {
             e.printStackTrace();
         }
         resultTextView.setText("= " + result);
