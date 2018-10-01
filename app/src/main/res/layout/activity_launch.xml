@@ -4,15 +4,26 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".LaunchActivity"
-    android:weightSum="5"
+    android:weightSum="6"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/mainTextView"
-        android:layout_height="0dp"
+        android:id="@+id/editTextView"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="2"
-        android:text="Hello Android!"/>
+        android:textAlignment="viewEnd"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp" />
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -31,25 +42,32 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/editButton7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="7" />
+
             <Button
+                android:id="@+id/editButton8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="2"/>
+                android:text="8" />
+
             <Button
+                android:id="@+id/editButton9"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="3"/>
+                android:text="9" />
+
             <Button
+                android:id="@+id/editButtonAdd"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="*"/>
+                android:text="+" />
 
         </LinearLayout>
         <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -62,25 +80,32 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/editButton4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="4"/>
+                android:text="4" />
+
             <Button
+                android:id="@+id/editButton5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="5"/>
+                android:text="5" />
+
             <Button
+                android:id="@+id/editButton6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="6"/>
+                android:text="6" />
+
             <Button
+                android:id="@+id/editButtonDiff"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="+"/>
+                android:text="-" />
 
         </LinearLayout>
         <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -93,25 +118,32 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/editButton1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="7"/>
+                android:text="1" />
+
             <Button
+                android:id="@+id/editButton2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="8"/>
+                android:text="2" />
+
             <Button
+                android:id="@+id/editButton3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="9"/>
+                android:text="3" />
+
             <Button
+                android:id="@+id/editButtonMult"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="-"/>
+                android:text="*" />
 
         </LinearLayout>
         <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -124,25 +156,32 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/editButtonDot"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="%"/>
+                android:text="." />
+
             <Button
+                android:id="@+id/editButton0"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="0"/>
+                android:text="0" />
+
             <Button
+                android:id="@+id/editButtonEqual"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="."/>
+                android:text="=" />
+
             <Button
+                android:id="@+id/editButtonDiv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="="/>
+                android:text="/" />
 
         </LinearLayout>
 
