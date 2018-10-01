@@ -188,7 +188,7 @@ public class LaunchActivity extends AppCompatActivity {
                                 !input.equals("/") &&
                                 !input.equals(".")) {
                             computCalculations();
-                        } 
+                        }
                     } else {
                         resultTextView.setText("= 0.0");
                     }
