@@ -17,7 +17,7 @@ import javax.script.ScriptException;
 public class LaunchActivity extends AppCompatActivity {
     Button editButton1, editButton2, editButton3, editButton4, editButton5, editButton6,
             editButton7, editButton8, editButton9, editButton0, editButtonAdd, editButtonDiff,
-            editButtonMult, editButtonDiv, editButtonDot, editButtonEqual;
+            editButtonMult, editButtonDiv, editButtonDot, editButtonEqual, editButtonBackspace;
     TextView editTextView, resultTextView;
 
     String input;
@@ -48,6 +48,7 @@ public class LaunchActivity extends AppCompatActivity {
         editButtonDiv = findViewById(R.id.editButtonDiv);
         editButtonDot = findViewById(R.id.editButtonDot);
         editButtonEqual = findViewById(R.id.editButtonEqual);
+        editButtonBackspace = findViewById(R.id.editButtonBackspace);
 
         editButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +169,31 @@ public class LaunchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editTextView.setText(Double.toString(computCalculations()));
+            }
+        });
+
+        editButtonBackspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input = editTextView.getText().toString();
+                if(input != null && input.length() > 0) {
+                    input = input.substring(0, input.length() - 1);
+                    editTextView.setText(input);
+                    if(input != null && input.length() > 0) {
+                        input = input.substring(input.length() - 1);
+                        if (
+                                !input.equals("+") &&
+                                !input.equals("-") &&
+                                !input.equals("*") &&
+                                !input.equals("/") &&
+                                !input.equals(".")) {
+                            computCalculations();
+                        } 
+                    } else {
+                        resultTextView.setText("= 0.0");
+                    }
+                }
+
             }
         });
 
